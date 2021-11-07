@@ -1,5 +1,7 @@
 package day14;
 
+import java.util.Scanner;
+
 // Created Node class
 
 class Node {
@@ -87,6 +89,98 @@ class operations {
 
 }
 
+class LinkList {
+	static operations link = new operations();
+
+	public static void addDataStart() {
+		link.pushData(70);
+		link.pushData(30);
+		link.pushData(56);
+		link.print();
+	}
+
+	public void addDataEnd() {
+
+		link.append(56);
+		link.append(30);
+		link.append(70);
+		link.print();
+	}
+
+	public void insertInBetewwn() {
+
+		Node secondnode = link.pushData(70);
+
+		Node firstnode = link.pushData(56);
+		Node newnode = new Node(30);
+
+		System.out.println("Before:");
+		link.print();
+		link.inBetweenInsert(firstnode, newnode);
+		System.out.println("\nAfter:");
+		link.print();
+
+	}
+
+	public void deleteFirstNode() {
+		addDataStart();
+		link.pop();
+		System.out.println("\nafter deleting first element: ");
+		link.print();
+
+	}
+
+}
+
 public class linkedlist {
 
+	public static void main(String[] args) {
+
+		LinkList obj = new LinkList();
+
+		System.out.println("*** Welcome To LinkList Program ***");
+		Scanner sc = new Scanner(System.in);
+		System.out.println();
+		System.out.println("Press 1 to add data at start");
+		System.out.println("Press 2 to add data at end");
+		System.out.println("Press 3 to insert data in between");
+		System.out.println("Press 4 to delete first node");
+		int input = sc.nextInt();
+
+		switch (input) {
+
+		/*
+		 * if user press 1 then addDataStart method will execute data will be store at
+		 * starting
+		 */
+
+		case 1:
+			obj.addDataStart();
+			break;
+
+		/*
+		 * if user press 2 then addDataEnd method will execute data will be store
+		 */
+
+		case 2:
+
+			obj.addDataEnd();
+			break;
+
+		case 3:
+
+			obj.insertInBetewwn();
+			break;
+
+		case 4:
+
+			obj.deleteFirstNode();
+			break;
+
+		default:
+			System.out.println("Invalid Choice");
+
+		}
+
+	}
 }
